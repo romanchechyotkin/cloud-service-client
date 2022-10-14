@@ -1,0 +1,21 @@
+.authLabel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.container {
+  margin: 0;
+}
+
+.formControl {
+  width: 400px;
+  font-size: 20px;
+}
+
+.authBtn {
+  position: relative;
+  min-width: 70px;
+  min-height: 38px;
+}
