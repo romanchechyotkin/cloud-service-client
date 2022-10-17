@@ -8,6 +8,7 @@ const AuthForm: FC<AuthFormProps> = ({type}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     const handleAuth = async () => {
         switch (type) {
             case Auth.LOGIN:

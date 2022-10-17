@@ -1,4 +1,5 @@
 import api from './axiosClient'
+import {setAuth} from "../store/auth";
 
 export const registration = async (email: string, password: string) => {
         try {
@@ -12,10 +13,13 @@ export const registration = async (email: string, password: string) => {
 export const login = async (email: string, password: string) => {
     try {
         const response = await api.post('/auth/login', {email, password})
-        localStorage.setItem('accessToken', response.data.accessToken)
-        localStorage.setItem('refreshToken', response.data.refreshToken)
+        if (response.status === 200) {
+            setAuth(true)
+            localStorage.setItem('auth', JSON.stringify(response.data))
+        }
         console.log(response.data)
     } catch (e) {
-        console.log(e)
+            console.log(e)
     }
+
 }
