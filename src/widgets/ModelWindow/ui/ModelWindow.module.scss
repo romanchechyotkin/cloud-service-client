@@ -1,5 +1,6 @@
 .modelWindow {
   position: absolute;
+  font-size: 24px;
   color: white;
   top: 70px;
   right: 30px;
@@ -10,4 +11,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+.modelWindowBtn {
+  font-size: 24px;
+}
+
+
+.profile {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
 }

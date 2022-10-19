@@ -15,6 +15,7 @@ const Navbar = () => {
     const logout = () => {
         setAuth(false)
         localStorage.removeItem('auth')
+        setModelVisible(false)
     }
 
     const toggle = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
                     Login
                 </NavLink>
             }
-            {modelVisible && <ModelWindow logout={logout} />}
+            {isLoggedIn && modelVisible && <ModelWindow setVisible={setModelVisible} logout={logout} />}
         </nav>
     );
 };

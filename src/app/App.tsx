@@ -4,7 +4,8 @@ import Navbar from "widgets/Navbar/ui/Navbar";
 import {HomePage} from "pages/HomePage";
 import {AuthPage} from "pages/AuthPage";
 import {Auth} from "./types/authTypes";
-import {$auth, setAuth} from "../store/auth";
+import {SettingsPage} from "pages/SettingsPage";
+import {$auth, setAuth, setAuthEmail} from "../store/auth";
 import {useStore} from "effector-react";
 import './styles/style.scss'
 
@@ -17,6 +18,7 @@ const App = () => {
             setAuth(false)
         } else {
             setAuth(true)
+            setAuthEmail(data.user.email)
         }
     }, []);
 
@@ -28,6 +30,7 @@ const App = () => {
                     <Route path={'/'} element={isLoggedIn ? <h1>Files</h1> : <HomePage />} />
                     <Route path={'/registration'} element={isLoggedIn ? <Navigate to={'/'} /> : <AuthPage type={Auth.REGISTRATION}/>} />
                     <Route path={'/login'} element={isLoggedIn ? <Navigate to={'/'} /> : <AuthPage type={Auth.LOGIN}/>} />
+                    <Route path={'/settings'} element={<SettingsPage />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
