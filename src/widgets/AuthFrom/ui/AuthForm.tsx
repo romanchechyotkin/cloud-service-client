@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
-import {login, registration} from "../../api/authClient";
-import {Auth, AuthFormProps} from "../../types/authTypes";
+import {login, registration} from "api/authClient";
+import {Auth, AuthFormProps} from "app/types/authTypes";
 import {Link} from "react-router-dom";
 
 const AuthForm: FC<AuthFormProps> = ({type}) => {
@@ -72,9 +72,9 @@ const AuthForm: FC<AuthFormProps> = ({type}) => {
     return (
         <div className={cls.container}>
             {type === 'registration' ?
-                <h2>Registration</h2>
+                <h2 className={cls.authTitle}>Registration</h2>
             :
-                <h2>Login</h2>
+                <h2 className={cls.authTitle}>Login</h2>
             }
             <label className={cls.authLabel}>
                 {(emailDirty && emailError) ? <div style={{color: "red"}}>{emailError}</div> : <>email</>}

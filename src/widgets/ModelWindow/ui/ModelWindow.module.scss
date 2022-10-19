@@ -1,0 +1,13 @@
+.modelWindow {
+  position: absolute;
+  color: white;
+  top: 70px;
+  right: 30px;
+  height: 170px;
+  width: 200px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}

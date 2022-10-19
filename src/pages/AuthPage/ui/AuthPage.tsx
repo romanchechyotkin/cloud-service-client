@@ -1,7 +1,7 @@
 import React from 'react';
-import AuthForm from "../../../components/AuthFrom/AuthForm";
+import AuthForm from "../../../widgets/AuthFrom/ui/AuthForm";
 import cls from './AuthPage.module.scss'
-import {AuthFormProps} from "../../../types/authTypes";
+import {AuthFormProps} from "../../../app/types/authTypes";
 
 const AuthPage = ({type}: AuthFormProps) => {
     return (
