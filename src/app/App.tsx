@@ -1,13 +1,13 @@
 import React, {Suspense, useEffect} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import Navbar from "widgets/Navbar/ui/Navbar";
+import {Navbar} from "widgets/Navbar/ui/Navbar";
 import {HomePage} from "pages/HomePage";
 import {AuthPage} from "pages/AuthPage";
-import {Auth} from "./types/authTypes";
 import {SettingsPage} from "pages/SettingsPage";
-import {$auth, setAuth, setAuthEmail} from "../store/auth";
+import {$auth, setAuth, setAuthEmail} from "./store/auth";
 import {useStore} from "effector-react";
-import './styles/style.scss'
+import './styles/index.scss'
+import {Auth} from "widgets/AuthFrom/ui/AuthForm";
 
 const App = () => {
     const isLoggedIn = useStore($auth)

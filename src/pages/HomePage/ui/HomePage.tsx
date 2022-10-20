@@ -3,7 +3,7 @@ import cls from './HomePage.module.scss'
 import Bg from '../../../shared/assets/Banner1.png'
 import Footer from '../../../shared/assets/footer.png'
 
-const HomePage = () => {
+export const HomePage = () => {
     return (
         <section className={cls.section}>
             <div className={cls.sectionWrapper}>
@@ -23,5 +23,3 @@ const HomePage = () => {
         </section>
     );
 };
-
-export default HomePage;

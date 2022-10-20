@@ -1,5 +1,5 @@
 import api from './axiosClient'
-import {setAuth, setAuthEmail} from "../store/auth";
+import {setAuth, setAuthEmail} from "../app/store/auth";
 
 export const registration = async (email: string, password: string) => {
         try {

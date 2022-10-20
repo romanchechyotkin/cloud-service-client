@@ -1,4 +1,4 @@
-import AuthForm from "./ui/AuthForm";
+import {AuthForm} from "./ui/AuthForm";
 
 export {
     AuthForm

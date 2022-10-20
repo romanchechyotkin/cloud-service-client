@@ -4,6 +4,7 @@ import cls from './AppLink.module.scss'
 
 interface AppLinkProps extends LinkProps{
     className?: string;
+    color?: string;
 }
 
 export const AppLink: React.FC<AppLinkProps> = (props) => {
@@ -11,11 +12,13 @@ export const AppLink: React.FC<AppLinkProps> = (props) => {
         to,
         children,
         className,
+        color,
         ...otherProps
     } = props
 
     return (
         <Link
+            style={{color}}
             to={to}
             {...otherProps}
             className={cls.AppLink}

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import cls from './ModelWindow.module.scss'
 import {AppLink} from "shared/ui/AppLink/AppLink";
 import {useStore} from "effector-react";
-import {$authEmail} from "store/auth";
+import {$authEmail} from "app/store/auth";
 import Avatar from 'shared/assets/avatar.png'
 
 interface ModelWindowProps {

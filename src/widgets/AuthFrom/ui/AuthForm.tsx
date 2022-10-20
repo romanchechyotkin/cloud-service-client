@@ -1,10 +1,18 @@
 import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
 import {login, registration} from "api/authClient";
-import {Auth, AuthFormProps} from "app/types/authTypes";
 import {Link} from "react-router-dom";
 
-const AuthForm: FC<AuthFormProps> = ({type}) => {
+export enum Auth {
+    REGISTRATION='registration',
+    LOGIN='login'
+}
+
+export interface AuthFormProps {
+    type: Auth;
+}
+
+export const AuthForm: FC<AuthFormProps> = ({type}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailDirty, setEmailDirty] = useState(false);
@@ -108,5 +116,3 @@ const AuthForm: FC<AuthFormProps> = ({type}) => {
 
     );
 };
-
-export default AuthForm;

@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import cls from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
-import CloudLogo from '../../../shared/assets/cloud-logo.svg'
+import CloudLogo from 'shared/assets/cloud-logo.svg'
 import {useStore} from "effector-react";
-import {$auth, setAuth} from "store/auth";
-import Avatar from '../../../shared/assets/avatar.png'
+import {$auth, setAuth} from "app/store/auth";
+import Avatar from 'shared/assets/avatar.png'
 import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import {ModelWindow} from "widgets/ModelWindow";
 
-const Navbar = () => {
+interface NavbarProps {
+    label?: string
+}
+
+export const Navbar: FC<NavbarProps> = ({label}) => {
     const isLoggedIn = useStore($auth)
     const [modelVisible, setModelVisible] = useState(false);
 
@@ -20,7 +24,6 @@ const Navbar = () => {
 
     const toggle = () => {
         setModelVisible(!modelVisible)
-        console.log(modelVisible)
     }
 
     return (
@@ -28,6 +31,7 @@ const Navbar = () => {
             <NavLink to={'/'}>
                 <img src={CloudLogo.toString()} alt="cloud-logo"/>
             </NavLink>
+            {label}
             {isLoggedIn ?
                 <div onClick={toggle} className={cls.profile}>
                     <img className={cls.avatar} src={Avatar} alt="avatar"/>
@@ -43,4 +47,3 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
