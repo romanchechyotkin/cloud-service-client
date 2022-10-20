@@ -4,6 +4,7 @@ import {AppLink} from "shared/ui/AppLink/AppLink";
 import {useStore} from "effector-react";
 import {$authEmail} from "app/store/auth";
 import Avatar from 'shared/assets/avatar.png'
+import {useTheme} from "../../../app/providers/ThemeProvider/lib/useTheme";
 
 interface ModelWindowProps {
     logout: () => void;
@@ -13,6 +14,7 @@ interface ModelWindowProps {
 // @ts-ignore
 const ModelWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
     const userEmail = useStore($authEmail)
+    const {theme, toggleTheme} = useTheme()
 
     return (
         <div className={cls.modelWindow}>
@@ -21,7 +23,7 @@ const ModelWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
                 <img src={Avatar} className={cls.icon}/>
             </div>
             <AppLink onClick={() => setVisible(false)} to={'/settings'}>settings</AppLink>
-            <p>theme: dark</p>
+            <p>theme: <button onClick={toggleTheme}>{theme}</button> </p>
             <button className={cls.modelWindowBtn} onClick={logout}>logout</button>
         </div>
     );

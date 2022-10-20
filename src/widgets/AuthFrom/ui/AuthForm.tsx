@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
 import {login, registration} from "api/authClient";
 import {Link} from "react-router-dom";
+import {AppLink} from "../../../shared/ui/AppLink/AppLink";
 
 export enum Auth {
     REGISTRATION='registration',
@@ -108,9 +109,9 @@ export const AuthForm: FC<AuthFormProps> = ({type}) => {
             </label>
             <button disabled={!formValid} className={cls.authBtn} onClick={handleAuth}>ok</button>
             {type === 'registration' ?
-                <p>есть аккаунт? <Link to={'/login'}>Войди</Link></p>
+                <p>есть аккаунт? <AppLink to={'/login'}>Войди</AppLink></p>
             :
-                <p>нет аккаунта? <Link to={'/registration'}>Зарегай</Link></p>
+                <p>нет аккаунта? <AppLink to={'/registration'}>Зарегай</AppLink></p>
             }
         </div>
 

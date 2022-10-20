@@ -1,5 +1,5 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react';
-import {HomePage} from './HomePage'
+import HomePage from './HomePage'
 
 export default {
     title: 'pages/SettingsPage',

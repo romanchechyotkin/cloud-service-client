@@ -2,3 +2,10 @@
 @import "variables/global";
 @import "themes/dark";
 @import "themes/light";
+
+.app {
+  background-color: var(--bg-color);
+  font: var(--font-m);
+  min-height: 100vh;
+  color: var(--primary-color);
+}

@@ -1,7 +1,8 @@
 import React, {FC, useState} from 'react';
 import cls from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
-import CloudLogo from 'shared/assets/cloud-logo.svg'
+import LogoDark from 'shared/assets/LogoDark.svg'
+import LogoLight from 'shared/assets/LogoLight.svg'
 import {useStore} from "effector-react";
 import {$auth, setAuth} from "app/store/auth";
 import Avatar from 'shared/assets/avatar.png'
@@ -29,7 +30,7 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
     return (
         <nav className={cls.navbar}>
             <NavLink to={'/'}>
-                <img src={CloudLogo.toString()} alt="cloud-logo"/>
+                <img src={LogoDark.toString()} alt="cloud-logo"/>
             </NavLink>
             {label}
             {isLoggedIn ?

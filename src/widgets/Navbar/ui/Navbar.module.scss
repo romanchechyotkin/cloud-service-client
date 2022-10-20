@@ -1,11 +1,12 @@
 .navbar {
   position: relative;
-  padding: 30px;
-  height: 90px;
+  padding: 0 50px;
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: black;
+  background-color: var(--bg-color);
+  border-bottom: 2px solid black;
 }
 
 .login {

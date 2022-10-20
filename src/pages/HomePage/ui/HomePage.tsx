@@ -1,9 +1,9 @@
 import React from 'react';
 import cls from './HomePage.module.scss'
-import Bg from '../../../shared/assets/Banner1.png'
-import Footer from '../../../shared/assets/footer.png'
+import Bg from '../../../shared/assets/bg.png'
+import Footer from '../../../shared/assets/Pagination.png'
 
-export const HomePage = () => {
+const HomePage = () => {
     return (
         <section className={cls.section}>
             <div className={cls.sectionWrapper}>
@@ -23,3 +23,5 @@ export const HomePage = () => {
         </section>
     );
 };
+
+export default HomePage
