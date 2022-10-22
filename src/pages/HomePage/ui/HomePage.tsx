@@ -1,7 +1,7 @@
 import React from 'react';
 import cls from './HomePage.module.scss'
-import Bg from '../../../shared/assets/bg.png'
-import Footer from '../../../shared/assets/Pagination.png'
+import Bg from 'shared/assets/bg.png'
+import Footer from 'shared/assets/Pagination.png'
 
 const HomePage = () => {
     return (

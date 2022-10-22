@@ -1,18 +1,18 @@
-import React, {Suspense, useContext, useEffect, useState} from 'react';
-import {Navigate, Route, Routes} from "react-router-dom";
+import React, {Suspense, useEffect} from 'react';
 import {Navbar} from "widgets/Navbar/ui/Navbar";
-import {HomePage} from "pages/HomePage";
-import {AuthPage} from "pages/AuthPage";
-import {SettingsPage} from "pages/SettingsPage";
 import {$auth, setAuth, setAuthEmail} from "./store/auth";
-import {useStore} from "effector-react";
-import {Auth} from "widgets/AuthFrom/ui/AuthForm";
+import {useTheme} from "./providers/ThemeProvider";
 import './styles/index.scss'
-import {useTheme} from "./providers/ThemeProvider/lib/useTheme";
+import {Navigate, Route, Routes} from 'react-router-dom';
+import {useStore} from "effector-react";
+import {HomePage} from "../pages/HomePage";
+import {SettingsPage} from "../pages/SettingsPage";
+import {AuthPage} from "../pages/AuthPage";
+import {Auth} from "../widgets/AuthFrom/ui/AuthForm";
 
 const App = () => {
-    const isLoggedIn = useStore($auth)
     const {theme} = useTheme()
+    const isLoggedIn = useStore($auth)
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('auth') as string)
