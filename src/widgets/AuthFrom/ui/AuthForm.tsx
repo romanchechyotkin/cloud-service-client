@@ -1,7 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
 import {login, registration} from "api/authClient";
-import {Link} from "react-router-dom";
 import {AppLink} from "../../../shared/ui/AppLink/AppLink";
 
 export enum Auth {
