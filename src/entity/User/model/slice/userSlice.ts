@@ -18,6 +18,8 @@ export const userSlice = createSlice({
         },
         initUser: (state) => {
             state.isAuth = true
+            const authData = JSON.parse(localStorage.getItem("auth") as string)
+            state.email = authData.user.email
         }
     },
     extraReducers: (builder) => {

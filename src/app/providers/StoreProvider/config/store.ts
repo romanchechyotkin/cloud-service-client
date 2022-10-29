@@ -7,7 +7,7 @@ export function createReduxStore(initialState?: StateSchema) {
         user: userReducer
     }
 
-    return configureStore({
+    return configureStore<StateSchema>({
         reducer: rootReducer,
         devTools: true,
         preloadedState: initialState
