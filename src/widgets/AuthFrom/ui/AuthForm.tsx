@@ -1,7 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
-import {login, registration} from "api/authClient";
-import {AppLink} from "../../../shared/ui/AppLink/AppLink";
+import {registration} from "api/authClient";
+import {AppLink} from "shared/ui/AppLink/AppLink";
+import {useDispatch} from "react-redux";
+import {loginByEmail} from "../../../entity/User/model/services/loginByEmail/loginByEmail";
 
 export enum Auth {
     REGISTRATION='registration',
@@ -20,6 +22,7 @@ export const AuthForm: FC<AuthFormProps> = ({type}) => {
     const [emailError, setEmailError] = useState('нельзя оставлять пустым');
     const [passwordError, setPasswordError] = useState('нельзя оставлять пустым');
     const [formValid, setFormValid] = useState(false);
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (emailError || passwordError) {
@@ -32,7 +35,8 @@ export const AuthForm: FC<AuthFormProps> = ({type}) => {
     const handleAuth = async () => {
         switch (type) {
             case Auth.LOGIN:
-                await login(email, password)
+                // @ts-ignore
+                dispatch(loginByEmail({email, password}))
                 break
 
             case Auth.REGISTRATION:
@@ -113,6 +117,5 @@ export const AuthForm: FC<AuthFormProps> = ({type}) => {
                 <p>нет аккаунта? <AppLink to={'/registration'}>Зарегай</AppLink></p>
             }
         </div>
-
     );
 };
