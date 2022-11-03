@@ -9,6 +9,7 @@ import {AuthPage} from "pages/AuthPage";
 import {Auth} from "widgets/AuthFrom/ui/AuthForm";
 import {getUserIsAuth, userActions} from "entity/User";
 import {useDispatch, useSelector} from "react-redux";
+import {Disk} from "widgets/Disk";
 
 const App = () => {
     const {theme} = useTheme()
@@ -29,7 +30,7 @@ const App = () => {
             <Navbar />
             <Suspense fallback={<div>loading...</div>}>
                 <Routes>
-                    <Route path={'/'} element={isAuth ? <h1>Files</h1> : <HomePage />} />
+                    <Route path={'/'} element={isAuth ? <Disk /> : <HomePage />} />
                     <Route path={'/registration'} element={isAuth ? <Navigate to={'/'} /> : <AuthPage type={Auth.REGISTRATION}/>} />
                     <Route path={'/login'} element={isAuth ? <Navigate to={'/'} /> : <AuthPage type={Auth.LOGIN}/>} />
                     <Route path={'/settings'} element={isAuth ? <SettingsPage /> : <Navigate to={'/login'} />} />

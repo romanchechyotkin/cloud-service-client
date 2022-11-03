@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import cls from './AuthForm.module.scss'
-import {registration} from "api/authClient";
+
 import {AppLink} from "shared/ui/AppLink/AppLink";
 import {useDispatch} from "react-redux";
-import {loginByEmail} from "../../../entity/User/model/services/loginByEmail/loginByEmail";
+import {loginByEmail, registration} from "entity/User/model/services/loginByEmail/loginByEmail";
 
 export enum Auth {
     REGISTRATION='registration',

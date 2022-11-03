@@ -1,10 +1,12 @@
 import {configureStore, ReducersMapObject} from '@reduxjs/toolkit';
 import {StateSchema} from "./StateSchema";
-import {userReducer} from "entity/User/model/slice/userSlice";
+import {userReducer} from "entity/User";
+import {fileReducer} from "entity/File";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducer: ReducersMapObject<StateSchema> = {
-        user: userReducer
+        user: userReducer,
+        file: fileReducer
     }
 
     return configureStore<StateSchema>({

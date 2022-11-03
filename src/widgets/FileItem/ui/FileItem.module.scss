@@ -1,0 +1,27 @@
+.file {
+  margin: 10px 0;
+  border-bottom: solid 2px var(--primary-color);
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  align-items: center;
+
+
+}
+
+.image {
+  justify-self: center;
+
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+
+.date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+
+.size {
+  grid-column-start: 6;
+  justify-self: center;
+}
