@@ -3,6 +3,12 @@ export interface FileSchema {
     files: File[];
 }
 
+// export interface Dir {
+//     name: string;
+//     dirId: string;
+//     parent: string;
+// }
+
 export interface File {
     _id: string;
    name: string;

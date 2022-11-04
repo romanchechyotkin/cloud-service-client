@@ -18,6 +18,7 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
     const dispatch = useDispatch()
 
     const logoutUser = () => {
+        setModelVisible(false)
         dispatch(userActions.userLogout())
     }
 

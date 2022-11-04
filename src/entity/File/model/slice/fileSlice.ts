@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {FileSchema} from "../types/file";
 import {loginByEmail} from "../../../User/model/services/loginByEmail/loginByEmail";
-import {getFilesFromServer} from "../services/getFilesFromServer/getFilesFromServer";
+import {createDir} from "../services/createDir/createDir";
 
 const initialState: FileSchema = {
     files: [],
@@ -17,6 +17,9 @@ export const fileSlice = createSlice({
         },
         setFiles: (state, action) => {
             state.files = action.payload
+        },
+        addFile: (state, action) => {
+            state.files.push(action.payload)
         }
     }
 })
