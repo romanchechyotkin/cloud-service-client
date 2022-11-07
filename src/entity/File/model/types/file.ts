@@ -1,13 +1,8 @@
 export interface FileSchema {
     commonDir: any;
     files: File[];
+    dirStack: any;
 }
-
-// export interface Dir {
-//     name: string;
-//     dirId: string;
-//     parent: string;
-// }
 
 export interface File {
     _id: string;

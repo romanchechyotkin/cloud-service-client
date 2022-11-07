@@ -1,11 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {FileSchema} from "../types/file";
-import {loginByEmail} from "../../../User/model/services/loginByEmail/loginByEmail";
-import {createDir} from "../services/createDir/createDir";
 
 const initialState: FileSchema = {
     files: [],
-    commonDir: null
+    commonDir: null,
+    dirStack: []
 }
 
 export const fileSlice = createSlice({
@@ -20,6 +19,12 @@ export const fileSlice = createSlice({
         },
         addFile: (state, action) => {
             state.files.push(action.payload)
+        },
+        pushStack: (state, action) => {
+            state.dirStack.push(action.payload)
+        },
+        popStack: (state) => {
+            state.dirStack.pop()
         }
     }
 })
