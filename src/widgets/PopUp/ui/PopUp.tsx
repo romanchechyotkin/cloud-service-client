@@ -25,6 +25,7 @@ export const PopUp: React.FC<PopUpProps> = ({isVisible, onClose}) => {
     const addFolder = () => {
         // @ts-ignore
         dispatch(createDir({name: dirName, dirId: commonDir}))
+        setDirName('')
         onClose()
     }
 

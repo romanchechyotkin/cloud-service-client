@@ -11,8 +11,8 @@ export const getFilesFromServer = createAsyncThunk(
             })
 
             thunkAPI.dispatch(fileActions.setFiles(response.data))
+
         } catch (e) {
-            console.log(e);
             return thunkAPI.rejectWithValue("error");
         }
     }
