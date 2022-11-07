@@ -19,8 +19,7 @@ const FileItem: React.FC<FileItemProps> = ({file}) => {
     }
 
     return (
-        // @ts-ignore
-        <div className={cls.file} onClick={file.type === "dir" ? openDir : ''}>
+        <div className={cls.file} onClick={file.type === "dir" ? openDir : undefined}>
             <img src={file.type === "dir" ? FolderIcon.toString() : FileIcon.toString()} alt="image" className={cls.image}/>
             <div className={cls.name}>{file.name}</div>
             <div className={cls.date}>{file.date.slice(0, 10)}</div>

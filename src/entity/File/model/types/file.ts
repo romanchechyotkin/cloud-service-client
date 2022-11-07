@@ -5,9 +5,13 @@ export interface FileSchema {
 }
 
 export interface File {
-    _id: string;
+   _id: string;
    name: string;
    type: string;
    size: number;
    date: string;
+   // path: string;
+   // user: string;
+   // childs: [];
+   // parent: string
 }

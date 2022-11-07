@@ -4,10 +4,21 @@
 
 .diskBtn {
   display: flex;
+
+  button {
+    cursor: pointer;
+  }
+
 }
 
-.btnBack {
+.uploadInput {
+  display: none;
+}
 
+.uploadLabel {
+  border: 2px solid var(--primary-color);
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .btnCreate {
