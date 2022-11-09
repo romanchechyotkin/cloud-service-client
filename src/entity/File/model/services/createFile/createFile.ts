@@ -17,18 +17,13 @@ export const createFile = createAsyncThunk(
             }
             const response = await api.post(`/files/uploadFile`, formData,{
                 headers: {Authorization: `Bearer ${JSON.parse(localStorage.getItem('auth') as string).accessToken}`},
-                // onUploadProgress: progressEvent => {
-                //     const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-                //     console.log('total', totalLength)
-                //     if (totalLength) {
-                //         let progress = Math.round((progressEvent.loaded * 100) / totalLength)
-                //         console.log(progress)
-                //     }
-                // }
+                onUploadProgress: function(progressEvent) {
+                    // @ts-ignore
+                    let percentCompleted = Math.round( (progressEvent.loaded * 100) / progressEvent.total);
+                    console.log(percentCompleted)
+                }
             })
-
             thunkAPI.dispatch(fileActions.addFile(response.data))
-
         } catch (e) {
             return thunkAPI.rejectWithValue("error");
         }

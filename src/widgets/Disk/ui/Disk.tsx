@@ -10,6 +10,7 @@ const Disk = () => {
     const dispatch = useDispatch()
     const {commonDir, dirStack} = useSelector(getFile)
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [dragEnter, setDragEnter] = useState(false);
 
     useEffect(() => {
         // @ts-ignore
@@ -36,8 +37,37 @@ const Disk = () => {
         files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
     }
 
-    return(
-        <div className={cls.disk}>
+    const dragEnterHandler = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setDragEnter(true)
+    }
+
+    const dragLeaveHandler = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setDragEnter(false)
+    }
+
+    const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setDragEnter(true)
+    }
+
+    const dropHandler = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault()
+        e.stopPropagation()
+        // @ts-ignore
+        let files = [...e.dataTransfer.files]
+        // @ts-ignore
+        files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
+        console.log(files)
+        setDragEnter(false)
+    }
+
+    return( !dragEnter ?
+        <div className={cls.disk} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>
             <div className={cls.diskBtn}>
                 <button className={cls.btnBack} onClick={undo}>назад</button>
                 <button onClick={onOpenPopup} className={cls.btnCreate}>создать папку</button>
@@ -49,6 +79,8 @@ const Disk = () => {
             <FileList />
             <PopUp isVisible={isPopupVisible} onClose={onClosePopup} />
         </div>
+            :
+        <div className={cls.dropArea} onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>Файлы сюда</div>
     );
 };
 
