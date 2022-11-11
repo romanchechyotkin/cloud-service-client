@@ -1,5 +1,5 @@
-import ModelWindow from "./ui/ModelWindow";
+import {ProfileWindow} from "./ui/ProfileWindow";
 
 export {
-    ModelWindow
+    ProfileWindow
 }

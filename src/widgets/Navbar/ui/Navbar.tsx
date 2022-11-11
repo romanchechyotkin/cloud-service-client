@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import LogoDark from 'shared/assets/LogoDark.svg'
 import Avatar from 'shared/assets/avatar.png'
 import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
-import {ModelWindow} from "widgets/ModelWindow";
+import {ProfileWindow} from "widgets/ModelWindow";
 import {useDispatch, useSelector} from "react-redux";
 import {userActions, getUserIsAuth} from "entity/User";
 
@@ -42,7 +42,7 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
                     Login
                 </NavLink>
             }
-            {isAuth && modelVisible && <ModelWindow setVisible={setModelVisible} logout={logoutUser} />}
+            {isAuth && modelVisible && <ProfileWindow setVisible={setModelVisible} logout={logoutUser} />}
         </nav>
     );
 };

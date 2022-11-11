@@ -1,15 +1,15 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ModelWindow from "./ModelWindow";
+import {ProfileWindow} from "./ProfileWindow";
 
 export default {
     title: 'widgets/ModelWindow',
-    component: ModelWindow,
+    component: ProfileWindow,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ModelWindow>;
+} as ComponentMeta<typeof ProfileWindow>;
 
-const Template: ComponentStory<typeof ModelWindow> = (args) => <ModelWindow {...args} />;
+const Template: ComponentStory<typeof ProfileWindow> = (args) => <ProfileWindow {...args} />;
 
 export const NavbarExample = Template.bind({});
 NavbarExample.args = {};

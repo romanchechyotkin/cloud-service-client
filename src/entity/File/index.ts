@@ -4,7 +4,8 @@ import { getFilesFromServer } from "./model/services/getFilesFromServer/getFiles
 import {fileActions, fileReducer} from "./model/slice/fileSlice";
 import type {FileSchema, File} from "./model/types/file";
 import {createDir} from "./model/services/createDir/createDir";
-import { createFile } from "./model/services/createFile/createFile";
+import {createFile} from "./model/services/createFile/createFile";
+import {downloadFile} from "./model/services/downloadFile/downloadFile";
 
 export {
     fileReducer,
@@ -16,4 +17,5 @@ export {
     getFileFiles,
     createDir,
     createFile,
+    downloadFile
 }

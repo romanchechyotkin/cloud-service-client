@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import cls from './ModelWindow.module.scss'
+import cls from './ProfileWindow.module.scss'
 import {AppLink} from "shared/ui/AppLink/AppLink";
 import Avatar from 'shared/assets/avatar.png'
 import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
@@ -11,7 +11,7 @@ interface ModelWindowProps {
     setVisible: (b: boolean) => void
 }
 
-const ModelWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
+export const ProfileWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
     const {theme, toggleTheme} = useTheme()
     const {email} = useSelector(getUser)
 
@@ -27,5 +27,3 @@ const ModelWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
         </div>
     );
 };
-
-export default ModelWindow;

@@ -66,7 +66,7 @@ const Disk = () => {
         setDragEnter(false)
     }
 
-    return( !dragEnter ?
+    return(!dragEnter ?
         <div className={cls.disk} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>
             <div className={cls.diskBtn}>
                 <button className={cls.btnBack} onClick={undo}>назад</button>
