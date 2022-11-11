@@ -4,6 +4,7 @@ import {classNames} from "shared/libs/classNames/classNames";
 import cls from './FilePopup.module.scss'
 import {useDispatch} from "react-redux";
 import {downloadFile} from "entity/File";
+import {deleteFileFromServer} from "entity/File";
 
 export interface FilePopup {
     file: File;
@@ -14,10 +15,17 @@ export interface FilePopup {
 export const FilePopup: React.FC<FilePopup> = ({file, isVisible, onClose}) => {
     const dispatch = useDispatch()
 
-    const download = async (e: any) => {
+    const download = (e: any) => {
         e.stopPropagation()
         // @ts-ignore
         dispatch(downloadFile(file))
+        onClose(e)
+    }
+
+    const fileDelete = (e: any) => {
+        e.stopPropagation()
+        // @ts-ignore
+        dispatch(deleteFileFromServer(file))
         onClose(e)
     }
 
@@ -30,7 +38,7 @@ export const FilePopup: React.FC<FilePopup> = ({file, isVisible, onClose}) => {
             <div onClick={onClose} className={cls.fileOverlay}>
                 <div onClick={onContentClick} className={cls.fileContent}>
                     <button onClick={download}>download</button>
-                    <button>delete</button>
+                    <button onClick={fileDelete}>delete</button>
                 </div>
             </div>
         </div>

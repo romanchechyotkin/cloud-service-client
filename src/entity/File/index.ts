@@ -6,6 +6,7 @@ import type {FileSchema, File} from "./model/types/file";
 import {createDir} from "./model/services/createDir/createDir";
 import {createFile} from "./model/services/createFile/createFile";
 import {downloadFile} from "./model/services/downloadFile/downloadFile";
+import { deleteFileFromServer } from "./model/services/deleteFile/deleteFile";
 
 export {
     fileReducer,
@@ -17,5 +18,6 @@ export {
     getFileFiles,
     createDir,
     createFile,
-    downloadFile
+    downloadFile,
+    deleteFileFromServer
 }

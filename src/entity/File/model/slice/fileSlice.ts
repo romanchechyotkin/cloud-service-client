@@ -25,6 +25,10 @@ export const fileSlice = createSlice({
         },
         popStack: (state) => {
             state.dirStack.pop()
+        },
+        deleteFile: (state, action) => {
+            const arr = state.files.filter(file => file._id != action.payload)
+            state.files = arr
         }
     }
 })
