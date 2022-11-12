@@ -1,0 +1,26 @@
+.uploader {
+  height: 300px;
+  width: 300px;
+  position: fixed;
+  background-color: var(--primary-color);
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.uploaderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.uploaderTitle {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+}
+
+.uploaderClose {
+  padding: 3px;
+}

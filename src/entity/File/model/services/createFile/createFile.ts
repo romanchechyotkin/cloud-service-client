@@ -3,6 +3,8 @@ import {fileActions} from "../../slice/fileSlice";
 // @ts-ignore
 import {api} from "shared/config/axios/axiosClient";
 import {File} from "../../types/file";
+import {uploaderActions} from "../../../../Uploader";
+import disk from "../../../../../widgets/Disk/ui/Disk";
 
 export const createFile = createAsyncThunk(
     "files/createFile",
@@ -15,12 +17,20 @@ export const createFile = createAsyncThunk(
             if (dirId) {
                 formData.append('parent', dirId)
             }
+
+            const uploadFile = {name: file.name, progress: 0, id: Date.now()}
+
+            thunkAPI.dispatch(uploaderActions.showUploader())
+            thunkAPI.dispatch(uploaderActions.setFiles(uploadFile))
+
             const response = await api.post(`/files/uploadFile`, formData,{
                 headers: {Authorization: `Bearer ${JSON.parse(localStorage.getItem('auth') as string).accessToken}`},
                 onUploadProgress: function(progressEvent) {
+                    Object.freeze(uploadFile);
+                    const objCopy = {...uploadFile};
                     // @ts-ignore
-                    let percentCompleted = Math.round( (progressEvent.loaded * 100) / progressEvent.total);
-                    console.log(percentCompleted)
+                    objCopy.progress = Math.round( (progressEvent.loaded * 100) / progressEvent.total);
+                    thunkAPI.dispatch(uploaderActions.updateFiles(objCopy))
                 }
             })
             thunkAPI.dispatch(fileActions.addFile(response.data))

@@ -1,0 +1,30 @@
+.uploadFile {
+  border-radius: 8px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  background-color: var(--bg-color);
+}
+
+.uploadFileHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.uploadFileProgressBar {
+  height: 1rem;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  display: flex;
+  margin: 3px 0;
+}
+
+.uploadFileBar {
+  background-color: green;
+  border-radius: 8px;
+}
+
+.uploadFileProgressPercent {
+  color: var(--bg-color);
+  left: 50%;
+  position: absolute;
+}

@@ -5,12 +5,15 @@ import {FileList} from "widgets/FileList";
 import cls from "./Disk.module.scss"
 import {PopUp} from "widgets/PopUp";
 import {createFile} from "entity/File";
+import {Uploader} from "../../Uploader";
+import {getUploaderIsVisible} from "entity/Uploader";
 
 const Disk = () => {
     const dispatch = useDispatch()
     const {commonDir, dirStack} = useSelector(getFile)
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [dragEnter, setDragEnter] = useState(false);
+    const isVisible = useSelector(getUploaderIsVisible)
 
     useEffect(() => {
         // @ts-ignore
@@ -66,6 +69,7 @@ const Disk = () => {
         setDragEnter(false)
     }
 
+
     return(!dragEnter ?
         <div className={cls.disk} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>
             <div className={cls.diskBtn}>
@@ -78,6 +82,7 @@ const Disk = () => {
             </div>
             <FileList />
             <PopUp isVisible={isPopupVisible} onClose={onClosePopup} />
+            {isVisible && <Uploader />}
         </div>
             :
         <div className={cls.dropArea} onDrop={dropHandler} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>Файлы сюда</div>
