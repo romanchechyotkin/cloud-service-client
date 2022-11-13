@@ -13,12 +13,13 @@ const Disk = () => {
     const {commonDir, dirStack} = useSelector(getFile)
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [dragEnter, setDragEnter] = useState(false);
+    const [sort, setSort] = useState("date");
     const isVisible = useSelector(getUploaderIsVisible)
 
     useEffect(() => {
         // @ts-ignore
-        dispatch(getFilesFromServer(commonDir))
-    }, [commonDir]);
+        dispatch(getFilesFromServer({dirId: commonDir, sort: sort}))
+    }, [commonDir, sort]);
 
     const onClosePopup = () => {
         setIsPopupVisible(false)
@@ -80,6 +81,13 @@ const Disk = () => {
                     <input multiple={true} onChange={event => fileUpload(event)} className={cls.uploadInput} id={"upload"} type="file"/>
                 </div>
             </div>
+            <select onChange={e => setSort(e.target.value)} value={sort} className={cls.select}>
+                <option value="name">по имени</option>
+                <option value="size-greater">по возрастанию размера</option>
+                <option value="size-lower">по уменьшению размера</option>
+                <option value="type">по типу файла</option>
+                <option value="date">по дате</option>
+            </select>
             <FileList />
             <PopUp isVisible={isPopupVisible} onClose={onClosePopup} />
             {isVisible && <Uploader />}

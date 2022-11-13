@@ -4,9 +4,19 @@ import {fileActions} from "../../slice/fileSlice";
 
 export const getFilesFromServer = createAsyncThunk(
     "files/getFilesFromServer",
-    async (dirId: string, thunkAPI) => {
+    async ({dirId, sort}: {dirId: string, sort: string}, thunkAPI) => {
         try {
-            const response = await api.get(`/files${dirId ? '?parent='+dirId : ''}`, {
+            let url = `http://localhost:5000/files`
+            if (dirId) {
+                url = `http://localhost:5000/files?parent=${dirId}`
+            }
+            if (sort) {
+                url = `http://localhost:5000/files?sort=${sort}`
+            }
+            if (dirId && sort) {
+                url = `http://localhost:5000/files?parent=${dirId}&sort=${sort}`
+            }
+            const response = await api.get(url, {
                 headers: {Authorization: `Bearer ${JSON.parse(localStorage.getItem('auth') as string).accessToken}`}
             })
 
