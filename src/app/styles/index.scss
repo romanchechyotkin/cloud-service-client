@@ -9,3 +9,7 @@
   min-height: 100vh;
   color: var(--primary-color);
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}

@@ -7,6 +7,7 @@ import {createDir} from "./model/services/createDir/createDir";
 import {createFile} from "./model/services/createFile/createFile";
 import {downloadFile} from "./model/services/downloadFile/downloadFile";
 import { deleteFileFromServer } from "./model/services/deleteFile/deleteFile";
+import { searchFiles } from "./model/services/searchFiles/searchFiles";
 
 export {
     fileReducer,
@@ -19,5 +20,6 @@ export {
     createDir,
     createFile,
     downloadFile,
-    deleteFileFromServer
+    deleteFileFromServer,
+    searchFiles
 }

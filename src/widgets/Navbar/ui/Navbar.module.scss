@@ -1,5 +1,8 @@
 .navbar {
-  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 0 50px;
   height: var(--navbar-height);
   display: flex;

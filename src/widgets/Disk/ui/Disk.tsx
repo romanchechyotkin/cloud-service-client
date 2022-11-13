@@ -7,6 +7,7 @@ import {PopUp} from "widgets/PopUp";
 import {createFile} from "entity/File";
 import {Uploader} from "../../Uploader";
 import {getUploaderIsVisible} from "entity/Uploader";
+import {getLoader} from "entity/Loader";
 
 const Disk = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,8 @@ const Disk = () => {
     const [dragEnter, setDragEnter] = useState(false);
     const [sort, setSort] = useState("date");
     const isVisible = useSelector(getUploaderIsVisible)
+    const {isLoading} = useSelector(getLoader)
+
 
     useEffect(() => {
         // @ts-ignore
@@ -70,6 +73,16 @@ const Disk = () => {
         setDragEnter(false)
     }
 
+    if (isLoading) {
+        return (
+            <div className={cls.ldsRing}>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        )
+    }
 
     return(!dragEnter ?
         <div className={cls.disk} onDragEnter={dragEnterHandler} onDragLeave={dragLeaveHandler} onDragOver={dragOverHandler}>

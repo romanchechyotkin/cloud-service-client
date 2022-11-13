@@ -7,6 +7,8 @@ import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import {ProfileWindow} from "widgets/ModelWindow";
 import {useDispatch, useSelector} from "react-redux";
 import {userActions, getUserIsAuth} from "entity/User";
+import {getFile, getFilesFromServer, searchFiles} from "entity/File";
+import {loaderActions} from "entity/Loader";
 
 interface NavbarProps {
     label?: string
@@ -15,6 +17,9 @@ interface NavbarProps {
 export const Navbar: FC<NavbarProps> = ({label}) => {
     const [modelVisible, setModelVisible] = useState(false);
     const isAuth = useSelector(getUserIsAuth)
+    const {commonDir} = useSelector(getFile)
+    const [searchName, setSearchName] = useState('');
+    const [searchTimeout, setSearchTimeout] = useState(false)
     const dispatch = useDispatch()
 
     const logoutUser = () => {
@@ -26,12 +31,37 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
         setModelVisible(!modelVisible)
     }
 
+    function searchChangeHandler(e: any) {
+        setSearchName(e.target.value)
+        if (searchTimeout != false) {
+            // @ts-ignore
+            clearTimeout(searchTimeout)
+        }
+        dispatch(loaderActions.closeLoader())
+        if(e.target.value != '') {
+            // @ts-ignore
+            setSearchTimeout(setTimeout((value) => {
+                // @ts-ignore
+                return dispatch(searchFiles(value));
+            }, 500, e.target.value))
+        } else {
+            // @ts-ignore
+            dispatch(getFilesFromServer({dirId: commonDir}))
+        }
+    }
+
     return (
         <nav className={cls.navbar}>
             <NavLink to={'/'}>
                 <img src={LogoDark.toString()} alt="cloud-logo"/>
             </NavLink>
-            {label} {/* for test stories*/}
+            {isAuth &&
+                <input
+                    value={searchName}
+                    onChange={e => searchChangeHandler(e)}
+                    type="text"
+                    placeholder={'введите название файла'}/>
+            }
             {isAuth ?
                 <div onClick={toggle} className={cls.profile}>
                     <img className={cls.avatar} src={Avatar} alt="avatar"/>
