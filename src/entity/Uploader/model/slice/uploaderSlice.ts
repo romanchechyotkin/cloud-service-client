@@ -14,6 +14,7 @@ export const uploaderSlice = createSlice({
             state.isVisible = true
         },
         closeUploader: (state) => {
+            state.files = []
             state.isVisible = false
         },
         setFiles: (state, action) => {

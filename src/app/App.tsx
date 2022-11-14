@@ -21,6 +21,7 @@ const App = () => {
         if (!data || !data.accessToken || !data.refreshToken) {
             dispatch(userActions.userLogout)
         } else {
+            dispatch(userActions.setUser(data.user))
             dispatch(userActions.initUser())
         }
     }, [dispatch]);

@@ -69,7 +69,6 @@ const Disk = () => {
         let files = [...e.dataTransfer.files]
         // @ts-ignore
         files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
-        console.log(files)
         setDragEnter(false)
     }
 
