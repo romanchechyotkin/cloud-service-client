@@ -2,7 +2,7 @@ import React from 'react';
 import cls from './Uploader.module.scss'
 import {UploadFile} from "widgets/UploadFile";
 import {useDispatch, useSelector} from "react-redux";
-import {getUploaderFiles, uploaderActions} from "entity/Uploader";
+import {getUploaderFiles, uploaderActions} from "entity/Uploader/index";
 
 export const Uploader = () => {
     const files = useSelector(getUploaderFiles)

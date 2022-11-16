@@ -16,7 +16,7 @@ export const ProfileWindow: FC<ModelWindowProps> = ({logout, setVisible}) => {
     const {email} = useSelector(getUser)
     const {currentUser} = useSelector(getUser)
 
-    const userAvatar = currentUser ? `http://localhost:5000/${currentUser.avatar}` : defaultAvatar
+    const userAvatar = currentUser?.avatar ? `http://localhost:5000/${currentUser.avatar}` : defaultAvatar
 
     return (
         <div className={cls.modelWindow}>

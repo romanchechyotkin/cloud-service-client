@@ -5,8 +5,7 @@ import {FileList} from "widgets/FileList";
 import cls from "./Disk.module.scss"
 import {PopUp} from "widgets/PopUp";
 import {createFile} from "entity/File";
-import {Uploader} from "../../Uploader";
-import {getUploaderIsVisible} from "entity/Uploader";
+import {getUploaderIsVisible, Uploader} from "entity/Uploader";
 import {getLoader} from "entity/Loader";
 
 const Disk = () => {

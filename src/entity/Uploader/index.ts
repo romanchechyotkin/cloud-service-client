@@ -3,6 +3,7 @@ import { getUploaderFiles } from "./model/selectors/getUploaderFiles/getUploader
 import { getUploaderIsVisible } from "./model/selectors/getUploaderIsVisible/getUploaderIsVisible";
 import {uploaderReducer, uploaderActions, uploaderSlice } from "./model/slice/uploaderSlice";
 import {uploaderFile, UploaderSchema } from "./model/types/UploaderSchema";
+import {Uploader} from "./ui/Uploader"
 
 export type {
     UploaderSchema,
@@ -10,6 +11,7 @@ export type {
 }
 
 export {
+    Uploader,
     uploaderSlice,
     uploaderReducer,
     uploaderActions,

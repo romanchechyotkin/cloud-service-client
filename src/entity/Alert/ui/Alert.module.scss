@@ -1,0 +1,14 @@
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bg-color);
+  height: 100px;
+  width: 300px;
+  border-radius: 50px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+  background-color: var(--primary-color);
+}

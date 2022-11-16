@@ -10,11 +10,14 @@ import {Auth} from "widgets/AuthFrom/ui/AuthForm";
 import {getUserIsAuth, userActions} from "entity/User";
 import {useDispatch, useSelector} from "react-redux";
 import {Disk} from "widgets/Disk";
+import Alert from "../entity/Alert/ui/Alert";
+import {getAlert} from "../entity/Alert";
 
 const App = () => {
     const {theme} = useTheme()
     const isAuth = useSelector(getUserIsAuth)
     const dispatch = useDispatch()
+    const {isAlertVisible} = useSelector(getAlert)
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('auth') as string)
@@ -38,6 +41,7 @@ const App = () => {
                     <Route path={'/settings'} element={isAuth ? <SettingsPage /> : <Navigate to={'/login'} />} />
                 </Routes>
             </Suspense>
+            {isAlertVisible && <Alert />}
         </div>
     );
 };
