@@ -33,8 +33,8 @@ export const userSlice = createSlice({
             })
             .addCase(loginByEmail.fulfilled, (state) => {
                 state.isAuth = true;
-                const authData = JSON.parse(localStorage.getItem("auth") as string)
-                state.email = authData.user.email
+                const authData = JSON.parse(localStorage.getItem("user") as string)
+                state.email = authData.email
             })
             .addCase(loginByEmail.rejected, (state, action) => {
                 state.isAuth = false
