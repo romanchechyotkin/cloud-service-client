@@ -8,6 +8,7 @@ import {createFile} from "./model/services/createFile/createFile";
 import {downloadFile} from "./model/services/downloadFile/downloadFile";
 import { deleteFileFromServer } from "./model/services/deleteFile/deleteFile";
 import { searchFiles } from "./model/services/searchFiles/searchFiles";
+import { uploadAvatar } from "./model/services/uploadAvatar/uploadAvatar";
 
 export {
     fileReducer,
@@ -21,5 +22,6 @@ export {
     createFile,
     downloadFile,
     deleteFileFromServer,
-    searchFiles
+    searchFiles,
+    uploadAvatar
 }

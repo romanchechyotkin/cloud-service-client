@@ -20,7 +20,8 @@ export const loginByEmail = createAsyncThunk<User, LoginByEmailProps>(
             }
 
             thunkAPI.dispatch(userActions.setUser(response.data.user))
-            localStorage.setItem("auth", JSON.stringify(response.data));
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            localStorage.setItem("auth", JSON.stringify({accessToken: response.data.accessToken, refreshToken: response.data.refreshToken}));
 
             return response.data;
         } catch (e) {

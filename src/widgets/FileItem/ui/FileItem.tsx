@@ -36,12 +36,13 @@ const FileItem: React.FC<FileItemProps> = ({file}) => {
         setFilePopupVisible(false)
     }
 
+
     return (
         <div className={cls.file} onClick={onClick} onContextMenu={onClick}>
             <img src={file.type === "dir" ? FolderIcon.toString() : FileIcon.toString()} alt="image" className={cls.image}/>
             <div className={cls.name}>{file.name}</div>
             <div className={cls.date}>{file.date.slice(0, 10)}</div>
-            <div className={cls.size}>{sizeFormat(file.size)}</div>
+            <div className={cls.size}>{file.type === "dir" ? '' :sizeFormat(file.size)}</div>
             {filePopupVisible &&
                 <FilePopup file={file} isVisible={filePopupVisible} onClose={closeFilePopup}/>
             }

@@ -5,7 +5,7 @@ import {loginByEmail} from "../services/loginByEmail/loginByEmail";
 const initialState: UserSchema = {
     isAuth: false,
     email: '',
-    currentUser: null
+    currentUser: null,
 };
 
 export const userSlice = createSlice({
@@ -19,8 +19,8 @@ export const userSlice = createSlice({
         },
         initUser: (state) => {
             state.isAuth = true
-            const authData = JSON.parse(localStorage.getItem("auth") as string)
-            state.email = authData.user.email
+            const authData = JSON.parse(localStorage.getItem("user") as string)
+            state.email = authData.email
         },
         setUser: (state, action) => {
             state.currentUser = action.payload

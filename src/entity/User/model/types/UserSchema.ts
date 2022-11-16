@@ -1,7 +1,7 @@
 export interface UserSchema {
     isAuth: boolean;
     email: string;
-    currentUser: User | null
+    currentUser: User | null;
 }
 
 export interface User {

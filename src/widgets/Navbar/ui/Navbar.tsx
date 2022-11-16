@@ -2,11 +2,11 @@ import React, {FC, useState} from 'react';
 import cls from './Navbar.module.scss'
 import {NavLink} from "react-router-dom";
 import LogoDark from 'shared/assets/LogoDark.svg'
-import Avatar from 'shared/assets/avatar.png'
+import defaultAvatar from 'shared/assets/avatar.png'
 import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 import {ProfileWindow} from "widgets/ModelWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {userActions, getUserIsAuth} from "entity/User";
+import {userActions, getUserIsAuth, getUser} from "entity/User";
 import {getFile, getFilesFromServer, searchFiles} from "entity/File";
 import {loaderActions} from "entity/Loader";
 
@@ -20,7 +20,10 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
     const {commonDir} = useSelector(getFile)
     const [searchName, setSearchName] = useState('');
     const [searchTimeout, setSearchTimeout] = useState(false)
+    const {currentUser} = useSelector(getUser)
     const dispatch = useDispatch()
+
+    const userAvatar = currentUser ? `http://localhost:5000/${currentUser.avatar}` : defaultAvatar
 
     const logoutUser = () => {
         setModelVisible(false)
@@ -64,7 +67,7 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
             }
             {isAuth ?
                 <div onClick={toggle} className={cls.profile}>
-                    <img className={cls.avatar} src={Avatar} alt="avatar"/>
+                    <img className={cls.avatar} src={userAvatar} alt="avatar"/>
                     {modelVisible ? <AiFillCaretUp className={cls.icon} /> : <AiFillCaretDown className={cls.icon} />}
                 </div>
                 :
