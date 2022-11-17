@@ -8,7 +8,7 @@ export interface File {
    _id: string;
    name: string;
    type: string;
-   size: number;
+   fileSize: number;
    date: string;
    // path: string;
    // user: string;

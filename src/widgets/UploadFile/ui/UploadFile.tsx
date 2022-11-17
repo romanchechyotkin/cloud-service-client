@@ -2,7 +2,6 @@ import React from 'react';
 import cls from './UploadFile.module.scss'
 import {uploaderActions, uploaderFile} from "entity/Uploader";
 import {useDispatch} from "react-redux";
-import {fileActions} from "../../../entity/File";
 
 export interface UploadFileProps {
     file: uploaderFile

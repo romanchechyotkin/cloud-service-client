@@ -30,8 +30,14 @@ const App = () => {
         }
     }, [dispatch]);
 
+    const rightClick = (e: React.MouseEvent) => {
+        if (e.type === "contextmenu") {
+            e.preventDefault()
+        }
+    }
+
     return (
-        <div className={`app ${theme}`}>
+        <div onContextMenu={rightClick} className={`app ${theme}`}>
             <Navbar />
             <Suspense fallback={<div>loading...</div>}>
                 <Routes>
