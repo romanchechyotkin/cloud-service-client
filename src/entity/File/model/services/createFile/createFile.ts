@@ -33,7 +33,7 @@ export const createFile = createAsyncThunk(
                     thunkAPI.dispatch(uploaderActions.updateFiles(objCopy))
                 }
             })
-            thunkAPI.dispatch(fileActions.addFile(response.data))
+            thunkAPI.dispatch(fileActions.addFile(response.data.file))
         } catch (e) {
             return thunkAPI.rejectWithValue("error");
         }
