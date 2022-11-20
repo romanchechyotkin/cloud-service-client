@@ -4,13 +4,13 @@ import {fileActions} from "../../slice/fileSlice";
 import {api} from "shared/config/axios/axiosClient";
 import {File} from "../../types/file";
 import {uploaderActions} from "../../../../Uploader";
+import {userActions} from "../../../../User";
 
 export const createFile = createAsyncThunk(
     "files/createFile",
     async ({dirId, file}: {dirId: string, file: File}, thunkAPI) => {
         try {
             const formData = new FormData()
-            console.log(file)
             // @ts-ignore
             formData.append('file', file)
 

@@ -24,6 +24,10 @@ export const userSlice = createSlice({
         },
         setUser: (state, action) => {
             state.currentUser = action.payload
+        },
+        setUsedSpace: (state, action) => {
+            // @ts-ignore
+            state.currentUser.usedSpace += action.payload
         }
     },
     extraReducers: (builder) => {

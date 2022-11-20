@@ -39,7 +39,6 @@ const Disk = () => {
     const fileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
         const files = [...e.target.files]
-        console.log(files)
         // @ts-ignore
         await files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
     }
