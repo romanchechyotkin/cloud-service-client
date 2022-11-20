@@ -36,11 +36,12 @@ const Disk = () => {
         dispatch(fileActions.setCommonDir(dirStack[dirStack.length - 1]))
     }
 
-    const fileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
         const files = [...e.target.files]
+        console.log(files)
         // @ts-ignore
-        files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
+        await files.forEach(file => dispatch(createFile({file: file, dirId: commonDir})))
     }
 
     const dragEnterHandler = (e: React.DragEvent<HTMLDivElement>) => {
