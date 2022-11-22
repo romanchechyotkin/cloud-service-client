@@ -1,10 +1,4 @@
 import React from 'react';
-import '@jetbrains/ring-ui/dist/style.css';
-
-// @ts-ignore
-import alertService from '@jetbrains/ring-ui/dist/alert-service/alert-service';
-// @ts-ignore
-import Button from '@jetbrains/ring-ui/dist/button/button';
 import {useDispatch} from "react-redux";
 import {uploadAvatar} from "entity/File";
 
@@ -20,15 +14,11 @@ export const SettingsPage = () => {
 
     return (
         <div>
-            jetbrains ui components
-            <Button onClick={() => alertService.successMessage('Hello world')}>
-                Click me
-            </Button>
-            <div>
+            <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                изменить аватар
                 <input onChange={e => avatar(e)} accept={"image/*"} placeholder={'upload'} type="file"/>
             </div>
         </div>
-
     );
 };
 
