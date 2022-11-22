@@ -2,8 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {User} from "../../types/UserSchema";
 import {api} from "shared/config/axios/axiosClient";
 import {userActions} from "../../slice/userSlice";
-import {alertActions, alertReducer} from "../../../../Alert";
-import {AxiosError} from "axios";
+import {alertActions} from "../../../../Alert";
 
 interface LoginByEmailProps {
     email: string;

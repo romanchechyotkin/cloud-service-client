@@ -5,7 +5,7 @@ export const downloadFile = createAsyncThunk(
     "files/downloadFile",
     async (file: File, thunkAPI) => {
         try {
-            const response = await fetch(`http://localhost:5000/files/download?id=${file._id}` , {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/files/download?id=${file._id}` , {
                 headers: {Authorization: `Bearer ${JSON.parse(localStorage.getItem('auth') as string).accessToken}`}
             })
 

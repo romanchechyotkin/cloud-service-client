@@ -8,7 +8,7 @@ export const getFilesFromServer = createAsyncThunk(
     async ({dirId, sort}: {dirId: string, sort: string}, thunkAPI) => {
         try {
             thunkAPI.dispatch(loaderActions.showLoader())
-            let url = `http://localhost:5000/files`
+            let url = `${process.env.REACT_APP_SERVER_URL}/files`
             if (dirId) {
                 url = `http://localhost:5000/files?parent=${dirId}`
             }

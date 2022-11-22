@@ -23,7 +23,7 @@ export const Navbar: FC<NavbarProps> = ({label}) => {
     const {currentUser} = useSelector(getUser)
     const dispatch = useDispatch()
 
-    const userAvatar = currentUser?.avatar ? `http://localhost:5000/${currentUser.avatar}` : defaultAvatar
+    const userAvatar = currentUser?.avatar ? `${process.env.REACT_APP_SERVER_URL}/${currentUser.avatar}` : defaultAvatar
 
     const logoutUser = () => {
         setModelVisible(false)
